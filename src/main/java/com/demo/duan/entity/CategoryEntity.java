@@ -26,8 +26,8 @@ public class CategoryEntity implements Serializable{
     @Column(name="name")
     private String name;
 
-    @Column(name="dmcha")
-    private String dmcha;
+    @Column(name="parent_name")
+    private String parent_name;
 
     @OneToMany(mappedBy = "category")
     List<ProductEntity> products;

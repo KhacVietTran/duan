@@ -25,8 +25,8 @@ public class CartEntity implements Serializable {
     @Column(name="id")
     private Integer id;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "customer_id", referencedColumnName = "id")
+    @OneToOne
+    @JoinColumn(name = "customer_id")
     private CustomerEntity customer;
 
     @Column(name="create_date")

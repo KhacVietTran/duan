@@ -46,8 +46,8 @@ public class BillEntity implements Serializable {
     @Column(name="status_pay")
     private boolean status_pay;
 
-    @Column(name="adress")
-    private String adress;
+    @Column(name="address")
+    private String address;
 
     @Column(name="city")
     private String city;
