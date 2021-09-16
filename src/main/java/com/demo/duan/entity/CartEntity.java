@@ -36,6 +36,6 @@ public class CartEntity implements Serializable {
     private BigDecimal total;
 
     @OneToMany(mappedBy = "cart")
-    List<CartDetailEntity> cartDetails;
+    private List<CartDetailEntity> cartDetails;
 
 }

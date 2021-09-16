@@ -44,4 +44,7 @@ public class CustomerEntity implements Serializable {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "cart_id")
     private CartEntity cart;
+
+    @OneToMany(mappedBy = "customer")
+    List<RatingEntity> ratings;
 }

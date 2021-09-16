@@ -9,6 +9,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -74,4 +75,7 @@ public class BillEntity implements Serializable {
 
     @ManyToOne @JoinColumn(name = "staff_id")
     private StaffEntity staff;
+
+    @OneToMany(mappedBy = "bill")
+    private List<BillDetailEntity> billDetails;
 }

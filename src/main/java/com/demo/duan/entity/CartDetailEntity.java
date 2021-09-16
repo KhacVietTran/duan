@@ -24,8 +24,8 @@ public class CartDetailEntity implements Serializable {
     @Column(name="id")
     private Integer id;
 
-    @OneToMany(mappedBy = "cartDetail")
-    List<ProductEntity> product;
+    @ManyToOne @JoinColumn(name = "product_id")
+    private ProductEntity product;
 
     @ManyToOne @JoinColumn(name = "cart_id")
     private CartEntity cart;
