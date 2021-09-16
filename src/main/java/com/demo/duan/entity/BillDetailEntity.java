@@ -14,8 +14,8 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "Receipt_detail")
-public class ReceiptDetailEntity implements Serializable {
+@Table(name = "Bill_detail")
+public class BillDetailEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -26,8 +26,8 @@ public class ReceiptDetailEntity implements Serializable {
     @ManyToOne @JoinColumn(name = "product_id")
     private ProductEntity product;
 
-    @ManyToOne @JoinColumn(name = "receipt_id")
-    private ReceiptEntity receipt;
+    @ManyToOne @JoinColumn(name = "bill_id")
+    private BillEntity bill;
 
     /*Số lượng của 1 sản phẩm*/
     @Column(name="number")
@@ -39,5 +39,4 @@ public class ReceiptDetailEntity implements Serializable {
     /*Thành tiền của tất cả sản phẩm trong phiếu nhập*/
     @Column(name="total")
     private BigDecimal total;
-
 }

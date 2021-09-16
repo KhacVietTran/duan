@@ -61,10 +61,15 @@ public class ProductEntity implements Serializable {
 
 
     /* Bảng Rating */
-//    @OneToMany(mappedBy = "product")
-//    List<TagDetailEntity> tagDetails;
+    @OneToMany(mappedBy = "product")
+    private List<RatingEntity> ratings;
     
     /* Bảng hóa đơn chi tiết*/
+    @OneToMany(mappedBy = "product")
+    private List<BillDetailEntity> billDetails;
+
+    @ManyToOne @JoinColumn(name = "product_id")
+    private CartDetailEntity cartDetail;
 
     /*Phiếu nhập chi tiết*/
     @OneToMany(mappedBy = "product")

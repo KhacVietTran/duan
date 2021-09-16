@@ -7,15 +7,15 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.math.BigDecimal;
+import java.util.Date;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "Receipt_detail")
-public class ReceiptDetailEntity implements Serializable {
+@Table(name = "Rating")
+public class RatingEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -26,18 +26,15 @@ public class ReceiptDetailEntity implements Serializable {
     @ManyToOne @JoinColumn(name = "product_id")
     private ProductEntity product;
 
-    @ManyToOne @JoinColumn(name = "receipt_id")
-    private ReceiptEntity receipt;
+    @ManyToOne @JoinColumn(name = "customer_id")
+    private CustomerEntity customer;
 
-    /*Số lượng của 1 sản phẩm*/
-    @Column(name="number")
-    private Integer number;
+    @Column(name="date_create")
+    private Date create_date;
 
-    @Column(name="price")
-    private BigDecimal price;
+    @Column(name="star")
+    private Integer star;
 
-    /*Thành tiền của tất cả sản phẩm trong phiếu nhập*/
-    @Column(name="total")
-    private BigDecimal total;
-
+    @Column(name="describe")
+    private String describe;
 }

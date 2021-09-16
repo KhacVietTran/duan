@@ -14,8 +14,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "Staff")
-public class StaffEntity implements Serializable {
+@Table(name = "Customer")
+public class CustomerEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -29,22 +29,19 @@ public class StaffEntity implements Serializable {
     @Column(name="password")
     private String password;
 
-    @Column(name="token")
-    private String token;
-
     @Column(name="name")
     private String name;
+
+    @Column(name="token")
+    private String token;
 
     @Column(name="role")
     private Integer role;
 
-    @Column(name="status")
-    private boolean status;
+    @OneToMany(mappedBy = "customer")
+    List<AdressEntity> adress;
 
-    @OneToMany(mappedBy = "staff")
-    private List<ReceiptEntity> receipts;
-
-   /*Hóa đơn*/
-    @OneToMany(mappedBy = "id")
-    private List<BillEntity> bills;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "cart_id")
+    private CartEntity cart;
 }

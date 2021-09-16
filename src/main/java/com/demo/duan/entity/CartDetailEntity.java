@@ -8,14 +8,15 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "Receipt_detail")
-public class ReceiptDetailEntity implements Serializable {
+@Table(name = "Cart_detail")
+public class CartDetailEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -23,21 +24,16 @@ public class ReceiptDetailEntity implements Serializable {
     @Column(name="id")
     private Integer id;
 
-    @ManyToOne @JoinColumn(name = "product_id")
-    private ProductEntity product;
+    @OneToMany(mappedBy = "cartDetail")
+    List<ProductEntity> product;
 
-    @ManyToOne @JoinColumn(name = "receipt_id")
-    private ReceiptEntity receipt;
+    @ManyToOne @JoinColumn(name = "cart_id")
+    private CartEntity cart;
 
-    /*Số lượng của 1 sản phẩm*/
     @Column(name="number")
     private Integer number;
-
-    @Column(name="price")
-    private BigDecimal price;
 
     /*Thành tiền của tất cả sản phẩm trong phiếu nhập*/
     @Column(name="total")
     private BigDecimal total;
-
 }
