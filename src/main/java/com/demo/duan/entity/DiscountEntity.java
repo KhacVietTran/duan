@@ -36,7 +36,10 @@ public class DiscountEntity implements Serializable {
     @Column(name = "number")
     private int number;
 
-    @Column(name = "end_date")
-    private Date end_date;
+    @Column(name = "open_day")
+    private Date open_day;
+
+    @Column(name = "end_day")
+    private Date end_day;
 
 }
