@@ -37,7 +37,7 @@ public class CustomerEntity implements Serializable {
     private String token;
 
     @Column(name="status")
-    private Integer status;
+    private boolean status;
 
     @Column(name="register_day")
     private Date register_day;
