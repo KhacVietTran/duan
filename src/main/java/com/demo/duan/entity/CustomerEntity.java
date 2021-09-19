@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 @Getter
@@ -35,8 +36,14 @@ public class CustomerEntity implements Serializable {
     @Column(name="token")
     private String token;
 
-    @Column(name="role")
-    private Integer role;
+    @Column(name="status")
+    private Integer status;
+
+    @Column(name="register_day")
+    private Date register_day;
+
+    @Column(name="last_login")
+    private Date last_login;
 
     @OneToMany(mappedBy = "customer")
     List<AdressEntity> adress;
