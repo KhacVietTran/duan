@@ -1,2 +1,4 @@
-package com.demo.duan.service.bill;public class BillServiceimpl {
+package com.demo.duan.service.bill;
+
+public class BillServiceimpl {
 }

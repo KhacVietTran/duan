@@ -1,2 +1,4 @@
-package com.demo.duan.service.bill.mapper;public class BillMapper {
+package com.demo.duan.service.bill.mapper;
+
+public class BillMapper {
 }
