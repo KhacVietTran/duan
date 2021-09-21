@@ -68,8 +68,8 @@ public class ProductEntity implements Serializable {
     @OneToMany(mappedBy = "product")
     private List<BillDetailEntity> billDetails;
 
-    @ManyToOne @JoinColumn(name = "product_id")
-    private CartDetailEntity cartDetail;
+    @OneToMany(mappedBy = "product")
+    private List<CartDetailEntity> cartDetails;
 
     /*Phiếu nhập chi tiết*/
     @OneToMany(mappedBy = "product")
