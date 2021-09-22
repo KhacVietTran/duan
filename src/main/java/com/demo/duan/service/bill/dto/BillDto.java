@@ -1,6 +1,7 @@
 package com.demo.duan.service.bill.dto;
 
 
+import com.demo.duan.entity.StaffEntity;
 import lombok.Getter;
 import lombok.Setter;
 import java.math.BigDecimal;
@@ -43,4 +44,5 @@ public class BillDto {
 
     private String themc;
 
+    private StaffEntity staff;
 }

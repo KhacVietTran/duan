@@ -11,6 +11,8 @@ public interface BillService {
 
     ResponseEntity<BillDto>getOne(Integer id);
 
+    ResponseEntity<Page<BillDto>>getByName(String name, Pageable pageable);
+
     ResponseEntity<BillDto>create(BillInput input);
 
     ResponseEntity<BillDto>update(BillInput input, Integer id);

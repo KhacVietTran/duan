@@ -8,7 +8,6 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 import java.math.BigDecimal;
-import java.util.Date;
 
 @Getter
 @Setter
@@ -25,11 +24,29 @@ public class BillInput {
     @Positive(message = "SĐT phải là chữ số")
     private String phone;
 
+    private BigDecimal total;
+
+    private boolean status_pay;
+
     @NotNull(message = "Không được bỏ trống!")
     private String address;
     @NotBlank(message = "Không được để trống!")
     private String city;
     @NotBlank(message = "Không được để trống!")
     private String district;
+    @NotNull(message = "Không được để trống")
+    private String status_order;
+
+    private String discount;
+
+    private String describe;
+
+    private String thema;
+
+    private String themb;
+
+    private String themc;
+
+    private Integer staff;
 
 }

@@ -2,6 +2,7 @@ package com.demo.duan.service.bill;
 
 import com.demo.duan.entity.BillEntity;
 import com.demo.duan.repository.bill.BillRepository;
+import com.demo.duan.repository.staff.StaffRepository;
 import com.demo.duan.service.bill.dto.BillDto;
 import com.demo.duan.service.bill.input.BillInput;
 import com.demo.duan.service.bill.mapper.BillMapper;
@@ -11,11 +12,17 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+import java.util.Date;
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class BillServiceimpl implements BillService{
 
     private final BillRepository billRepository;
+
+    private final StaffRepository staffRepository;
 
     private final BillMapper billMapper;
     @Override
@@ -31,8 +38,19 @@ public class BillServiceimpl implements BillService{
     }
 
     @Override
+    public ResponseEntity<Page<BillDto>> getByName(String name, Pageable pageable) {
+        Page<BillDto> result = this.billRepository.findByName(name,pageable).map(billMapper :: entityToDto);
+        return ResponseEntity.ok().body(result);
+    }
+
+    @Override
     public ResponseEntity<BillDto> create(BillInput input) throws RuntimeException{
         BillEntity entity = this.billMapper.inputToEntity(input);
+        Date date = new Date();
+        entity.setCreate_date(date);
+        BigDecimal bd = new BigDecimal(String.valueOf(input.getTotal()));
+        entity.setTotal(bd);
+        entity.setStaff(staffRepository.getById(input.getStaff()));
         this.billRepository.save(entity);
         return ResponseEntity.ok().body(this.billMapper.entityToDto(entity));
     }
