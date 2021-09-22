@@ -1,7 +1,9 @@
 package com.demo.duan.service.customer;
 
 import com.demo.duan.config.hashpassword.HashPass;
+import com.demo.duan.entity.CartEntity;
 import com.demo.duan.entity.CustomerEntity;
+import com.demo.duan.repository.cart.CartRepository;
 import com.demo.duan.repository.customer.CustomerRepository;
 import com.demo.duan.service.customer.dto.CustomerDto;
 import com.demo.duan.service.customer.input.CustomerInput;
@@ -12,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Service
@@ -21,6 +24,8 @@ public class CustomerServiceImpl implements CustomerService{
     private final CustomerRepository repository;
 
     private final CustomerMapper mapper;
+
+    private final CartRepository cartRepository;
 
     @Override
     @Transactional
@@ -53,8 +58,17 @@ public class CustomerServiceImpl implements CustomerService{
         entity.setRegister_day(day_date);
         entity.setLast_login(day_date);
 
-        /* Lưu vào db */
+        /* Lưu khách hàng vào db */
         repository.save(entity);
+
+        /* Tạo giỏ hàng cho khách vừa đăng kí */
+        CartEntity cartEntity = new CartEntity();
+        cartEntity.setCustomer(entity);
+        cartEntity.setCreate_date(day_date);
+        cartEntity.setTotal(BigDecimal.ZERO);
+
+        /* Lưu giỏ hàng vào DB */
+        cartRepository.save(cartEntity);
 
         return ResponseEntity.ok().body(mapper.entityToDto(entity));
     }
