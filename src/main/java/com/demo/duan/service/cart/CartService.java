@@ -5,4 +5,6 @@ import org.springframework.http.ResponseEntity;
 
 public interface CartService {
     public ResponseEntity<CartDto> create();
+
+    public ResponseEntity<CartDto> searchByCustomerId(Integer customerId);
 }

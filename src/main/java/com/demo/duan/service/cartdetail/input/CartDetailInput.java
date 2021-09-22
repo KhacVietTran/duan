@@ -5,6 +5,7 @@ import com.demo.duan.entity.ProductEntity;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -15,6 +16,7 @@ public class CartDetailInput {
 
     private Integer productId;
 
+    @NotNull(message = "Mời bạn nhập số lượng")
     private Integer number;
 
 }

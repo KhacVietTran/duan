@@ -13,6 +13,4 @@ public class CartDetailParam {
 
     private Integer cartId;
 
-    private String productName;
-
 }

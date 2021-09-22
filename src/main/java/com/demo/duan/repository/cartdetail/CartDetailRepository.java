@@ -8,15 +8,17 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface CartDetailRepository extends JpaRepository<CartDetailEntity, Integer> {
 
-    @Query("from CartDetailEntity cd where cd.cart.id =:#{#cartDetail.cartId}" +
-            "and and (:#{#cartDetail.productName} is null or cd.product.name = :#{#cartDetail.productName})")
+    @Query("from CartDetailEntity cd where cd.cart.id =:#{#cartDetail.cartId}")
     List<CartDetailEntity> find(@Param("cartDetail") CartDetailParam cartDetail);
 
-    CartDetailEntity findByCart_Id(Integer id);
+    Optional<CartDetailEntity> findByCart_Id(Integer id);
 
     Integer countAllByCart_IdAndProduct_Id(Integer cartId, Integer productId);
+
+    CartDetailEntity findByCart_IdAndProduct_Id(Integer cartId, Integer productId);
 }
