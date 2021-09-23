@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,4 +22,12 @@ public interface CartDetailRepository extends JpaRepository<CartDetailEntity, In
     Integer countAllByCart_IdAndProduct_Id(Integer cartId, Integer productId);
 
     CartDetailEntity findByCart_IdAndProduct_Id(Integer cartId, Integer productId);
+
+    @Query("select sum(cd.total) from CartDetailEntity cd where cd.cart.id = :cartId")
+    BigDecimal totalOfCart(@Param("cartId") Integer cartId);
+
+    @Query("select sum(cd.number) from CartDetailEntity cd where cd.cart.id = :cartId")
+    Integer checkNumberOfCartDetail(@Param("cartId") Integer cartId);
+
+    void deleteAllByCart_Id(Integer cartId);
 }

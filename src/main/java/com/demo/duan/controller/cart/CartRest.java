@@ -14,10 +14,8 @@ public class CartRest {
 
     private final CartService service;
 
-    @GetMapping
-    public ResponseEntity<CartDto> searchByCustomerId(@PathVariable Integer customerId){
-        System.out.println(customerId);
-        return null;
-//        return service.searchByCustomerId(customerId);
+    @GetMapping("/{id}")
+    public ResponseEntity<CartDto> searchByCustomerId(@PathVariable Integer id){
+        return service.searchByCustomerId(id);
     }
 }

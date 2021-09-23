@@ -28,4 +28,24 @@ public class CartDetailRest {
         return service.addToCartDetail(input);
     }
 
+    @PutMapping
+    public ResponseEntity<CartDetailDto> updateNumber(@Valid @RequestBody CartDetailInput input){
+        return service.updateNumber(input);
+    }
+
+    @PutMapping("/up/{id}")
+    public ResponseEntity<CartDetailDto> updateNumberUp(@PathVariable Integer id){
+        return service.updateNumberUp(id);
+    }
+
+    @PutMapping("/down/{id}")
+    public ResponseEntity<CartDetailDto> updateNumberDown(@PathVariable Integer id){
+        return service.updateNumberDown(id);
+    }
+
+    @DeleteMapping("/{cartId}")
+    public ResponseEntity<CartDetailDto> delete(@PathVariable Integer cartId){
+        return service.delete(cartId);
+    }
+
 }
