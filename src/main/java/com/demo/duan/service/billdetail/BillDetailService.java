@@ -6,7 +6,5 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 
 public interface BillDetailService {
-    ResponseEntity<Page<BillDetailDto>>getAll(Pageable pageable);
-
-    ResponseEntity<BillDetailDto> getByIdBill(Integer id);
+    ResponseEntity<Page<BillDetailDto>> getByIdBill(Pageable pageable, Integer id);
 }

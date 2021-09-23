@@ -1,5 +1,6 @@
 package com.demo.duan.service.bill.input;
 
+import com.demo.duan.entity.StaffEntity;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -47,6 +48,6 @@ public class BillInput {
 
     private String themc;
 
-    private Integer staff;
+    private StaffEntity staff;
 
 }

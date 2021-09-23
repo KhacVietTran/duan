@@ -11,11 +11,10 @@ public interface BillService {
 
     ResponseEntity<BillDto>getOne(Integer id);
 
-    ResponseEntity<Page<BillDto>>getByName(String name, Pageable pageable);
+    ResponseEntity<Page<BillDto>>getByEmail(String name, Pageable pageable);
 
     ResponseEntity<BillDto>create(BillInput input);
 
     ResponseEntity<BillDto>update(BillInput input, Integer id);
 
-    ResponseEntity<BillDto>delete(Integer id);
 }
