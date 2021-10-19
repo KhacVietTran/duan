@@ -39,9 +39,6 @@ public class CustomerEntity implements Serializable {
     @Column(name="status")
     private boolean status;
 
-    @Column(name="register_day")
-    private Date register_day;
-
     @Column(name="last_login")
     private Date last_login;
 
@@ -51,6 +48,4 @@ public class CustomerEntity implements Serializable {
     @OneToOne(mappedBy = "customer")
     private CartEntity cart;
 
-    @OneToMany(mappedBy = "customer")
-    List<RatingEntity> ratings;
 }

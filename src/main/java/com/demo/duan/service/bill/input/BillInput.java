@@ -36,8 +36,6 @@ public class BillInput {
     @NotNull(message = "Không được để trống")
     private String status_order;
 
-    private String discount;
-
     private String describe;
 
     private String thema;
@@ -46,5 +44,5 @@ public class BillInput {
 
     private String themc;
 
-    private Integer staff;
+//    private Integer staff;
 }

@@ -7,15 +7,14 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "Rating")
-public class RatingEntity implements Serializable {
+@Table(name = "Favorite")
+public class FavoriteEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -26,15 +25,7 @@ public class RatingEntity implements Serializable {
     @ManyToOne @JoinColumn(name = "product_id")
     private ProductEntity product;
 
-    @ManyToOne @JoinColumn(name = "customer_id")
+    @ManyToOne
+    @JoinColumn(name = "customer_id", nullable = false)
     private CustomerEntity customer;
-
-    @Column(name="date_create")
-    private Date create_date;
-
-    @Column(name="star")
-    private Integer star;
-
-    @Column(name="describe")
-    private String describe;
 }

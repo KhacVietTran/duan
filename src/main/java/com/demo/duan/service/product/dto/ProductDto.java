@@ -1,8 +1,6 @@
 package com.demo.duan.service.product.dto;
 
 import com.demo.duan.entity.PhotoEntity;
-import com.demo.duan.entity.RatingEntity;
-import com.demo.duan.entity.TagDetailEntity;
 import com.demo.duan.service.category.dto.CategoryDto;
 import lombok.Getter;
 import lombok.Setter;
@@ -23,8 +21,6 @@ public class ProductDto {
     private boolean status;
 
     private BigDecimal price;
-
-    private Float rating;
 
     private Date crate_date;
 

@@ -55,7 +55,6 @@ public class CustomerServiceImpl implements CustomerService{
         String password = HashPass.hash(input.getPassword());
         CustomerEntity entity = mapper.inputToEntity(input);
         entity.setPassword(password);
-        entity.setRegister_day(day_date);
         entity.setLast_login(day_date);
 
         /* Lưu khách hàng vào db */

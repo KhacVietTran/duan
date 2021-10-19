@@ -41,6 +41,9 @@ public class StaffEntity implements Serializable {
     @Column(name="status")
     private boolean status;
 
+    @Column(name="phone")
+    private String phone;
+
     @OneToMany(mappedBy = "staff")
     private List<ReceiptEntity> receipts;
 

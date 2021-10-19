@@ -35,6 +35,12 @@ public class ReceiptEntity implements Serializable {
     @Column(name="create_date")
     private Date create_date;
 
+    @Column(name="describe")
+    private String describe;
+
+    @Column(name="id_code")
+    private String id_code;
+
     @OneToMany(mappedBy = "receipt")
     private List<ReceiptDetailEntity> receiptDetails;
 }

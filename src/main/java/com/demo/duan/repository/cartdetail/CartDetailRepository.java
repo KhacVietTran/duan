@@ -17,6 +17,9 @@ public interface CartDetailRepository extends JpaRepository<CartDetailEntity, In
     @Query("from CartDetailEntity cd where cd.cart.id =:#{#cartDetail.cartId}")
     List<CartDetailEntity> find(@Param("cartDetail") CartDetailParam cartDetail);
 
+    @Query("from CartDetailEntity cd where cd.cart.id = :cartId")
+    List<CartDetailEntity> findListByCartId(@Param("cartId") Integer cartId);
+
     Optional<CartDetailEntity> findByCart_Id(Integer id);
 
     Integer countAllByCart_IdAndProduct_Id(Integer cartId, Integer productId);

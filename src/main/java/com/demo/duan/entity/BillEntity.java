@@ -58,9 +58,6 @@ public class BillEntity implements Serializable {
     @Column(name="status_order")
     private String status_order;
 
-    @Column(name="discount")
-    private String discount;
-
     @Column(name="describe")
     private String describe;
 
@@ -73,8 +70,14 @@ public class BillEntity implements Serializable {
     @Column(name="themc")
     private String themc;
 
+    @Column(name="id_code")
+    private String id_code;
+
     @ManyToOne @JoinColumn(name = "staff_id")
     private StaffEntity staff;
+
+    @OneToOne @JoinColumn(name = "discount_id")
+    private DiscountEntity discount;
 
     @OneToMany(mappedBy = "bill")
     private List<BillDetailEntity> billDetails;

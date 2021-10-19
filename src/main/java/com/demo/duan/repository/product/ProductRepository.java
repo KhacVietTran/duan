@@ -33,7 +33,6 @@ public interface ProductRepository extends JpaRepository<ProductEntity, Integer>
     @Query("from ProductEntity p where p.status = false " +
             "and (:#{#product.name} is null or p.name like :#{#product.name})" +
             "and (:#{#product.categoryId} is null or p.category.id = :#{#product.categoryId})" +
-            "and (:#{#product.crate_date} is null or p.crate_date = :#{#product.crate_date})" +
             "and (:#{#product.price} is null or p.price = :#{#product.price})")
     Page<ProductEntity> searchByCategoryName(@Param("product") ProductParam product, Pageable pageable );
 

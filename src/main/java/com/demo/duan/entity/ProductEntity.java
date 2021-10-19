@@ -46,23 +46,38 @@ public class ProductEntity implements Serializable {
     @Column(name = "photo")
     private String photo;
 
-    @Column(name = "rating")
-    private Float rating;
-
     @Column(name = "create_date")
-    private Date crate_date;
+    private Date createDate;
 
     @OneToMany(mappedBy = "product")
     private List<PhotoEntity> photos ;
 
-    /* bảng chi tiết Tag*/
-    @OneToMany(mappedBy = "product")
-    private List<TagDetailEntity> tagDetails;
+    /* -------------------------- Phục vụ mô tả  ---------------------------------- */
 
+    @Column(name = "sku")
+    private String sku;
 
-    /* Bảng Rating */
-    @OneToMany(mappedBy = "product")
-    private List<RatingEntity> ratings;
+    /* Đặc điểm nổi bật */
+    @Column(name = "trait")
+    private String trait;
+
+    @Column(name = "release_date")
+    private Date releaseDate;
+
+    @Column(name = "price_release")
+    private Integer price_release;
+
+    @Column(name = "weight")
+    private Float weight;
+
+    @Column(name = "height")
+    private Float height;
+
+    @Column(name = "width")
+    private Float width;
+
+    @Column(name="length")
+    private Float length;
     
     /* Bảng hóa đơn chi tiết*/
     @OneToMany(mappedBy = "product")
@@ -74,5 +89,8 @@ public class ProductEntity implements Serializable {
     /*Phiếu nhập chi tiết*/
     @OneToMany(mappedBy = "product")
     List<ReceiptDetailEntity> receiptDetails ;
+
+    @OneToMany(mappedBy = "product")
+    List<FavoriteEntity> favorites ;
 
 }

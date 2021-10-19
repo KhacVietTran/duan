@@ -31,8 +31,6 @@ public class BillDto {
 
     private String status_order;
 
-    private String discount;
-
     private String describe;
 
     private String thema;
